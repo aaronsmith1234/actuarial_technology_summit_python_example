@@ -4,7 +4,7 @@ import pandas as pd
 
 def determine_expected_benefit_for_one_person(
     age: int, gender: str, benefit_amt: int, mort_table: pd.DataFrame = None
-):
+) -> float:
     # load mortality tables if not provided
     if mort_table is None:
         male_mort = get_mortality_data(
