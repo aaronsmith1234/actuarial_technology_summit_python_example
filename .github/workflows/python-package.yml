@@ -27,7 +27,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install pylint pytest pip-audit coverage
+        python -m pip install pylint pytest pip-audit coverage pytest-cov
         python -m pip install "setuptools>65.5.0"
         
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
@@ -49,7 +49,7 @@ jobs:
 
     - name: Test with pytest
       run: |
-        pytest
+        pytest --junitxml=junit/test-results.xml --cov=. --cov-report=xml --cov-report=html
 
     - name: Generate coverage report
       run: |
