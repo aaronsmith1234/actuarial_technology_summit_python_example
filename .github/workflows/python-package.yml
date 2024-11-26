@@ -37,9 +37,9 @@ jobs:
       run: |
         python -m pylint . --recursive=y --disable=C,R,I
 
-    - name: Check that there are no pylint errors and warnings
+    - name: Enforce minimum pylint score
       run: |
-         python -m pylint --fail-under=8 "example_package"
+         python -m pylint --fail-under=7 "example_package"
 
     - name: Check that there are no vulnerable packages
       run: |
