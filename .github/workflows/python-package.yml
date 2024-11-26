@@ -52,3 +52,5 @@ jobs:
     - name: Generate coverage report
       run: |
        python -m coverage report --fail-under=70
+
+#can do other things, like autopublish documentation, check for code formatting, publish a package only when merging to main, etc
