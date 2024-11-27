@@ -1,5 +1,4 @@
 import pandas as pd
-import xlwings as xw
 
 
 def get_mortality_data(gender: str) -> pd.DataFrame:
@@ -10,10 +9,9 @@ def get_mortality_data(gender: str) -> pd.DataFrame:
         gender_code = "F"
     else:
         raise KeyError("You've entered a gender for which there is no table")
+
     # https://www.ssa.gov/oact/HistEst/PerLifeTables/2017/PerLifeTables2017.html
-    df = pd.read_csv(
+    return pd.read_csv(
         f"https://www.ssa.gov/oact/HistEst/PerLifeTables/2017/PerLifeTables_{gender_code}_Hist_TR2017.csv",
         skiprows=4,
     )
-    xw.view(df)
-    return df
