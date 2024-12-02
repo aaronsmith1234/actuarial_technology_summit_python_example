@@ -3,9 +3,9 @@ from example_package import expected_benefits as benefits
 
 def test_get_mortality_table_from_url():
     gender = "MALE"
-    df = benefits.get_mortality_data(gender)
-    assert len(df) == 13800
-    assert "Year" in df.columns
+    result = benefits.get_mortality_data(gender)
+    assert len(result) == 13800
+    assert "Year" in result.columns
 
 
 def test_male_age_65_2014_table():
